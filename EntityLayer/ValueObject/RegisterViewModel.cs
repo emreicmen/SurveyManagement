@@ -38,16 +38,16 @@ namespace EntityLayer.ValueObject
         [Required(ErrorMessage = "{0} field required")]
         public int CompanyID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} field required")]
         public string Country { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} field required")]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} field required")]
         public int Age { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} field required")]
         public string Authorization { get; set; }
     }
 }

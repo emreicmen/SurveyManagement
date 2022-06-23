@@ -2,9 +2,8 @@
 @using EntityLayer
 @using UILayer.Models
 
-<link href="~/Css/validationSummaryCss.css" rel="stylesheet" />
-
 @model RegisterViewModel
+
 <body class="g-sidenav-show  bg-gray-200">
 
     @*Navbar start*@
@@ -40,7 +39,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
-                        <span class="nav-link-text ms-1">Profile</span>
+                        <span class="nav-link-text ms-1">@CurrentSession.User.UserName.ToString()</span>
                     </a>
                 </li>
 

@@ -53,6 +53,7 @@
     <Compile Include="QuestionTypes.cs" />
     <Compile Include="SystemUsers.cs" />
     <Compile Include="JunctionTables\SystemUsersPolls.cs" />
+    <Compile Include="ValueObject\CreateUserViewModel.cs" />
     <Compile Include="ValueObject\LoginViewModel.cs" />
     <Compile Include="ValueObject\RegisterViewModel.cs" />
   </ItemGroup>

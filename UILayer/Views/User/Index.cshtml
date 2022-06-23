@@ -119,10 +119,12 @@
                                             <span class="mb-2 text-xs">Country: <span class="text-dark ms-sm-2 font-weight-bold">@user.Country</span></span>
                                             <span class="mb-2 text-xs">City: <span class="text-dark ms-sm-2 font-weight-bold">@user.City</span></span>
                                         </div>
-                                        <div class="ms-auto text-end">
-                                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/User/Delete/@user.SystemUserID"><i class="material-icons text-sm me-2">delete</i>Delete</a>
-                                            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
-                                        </div>
+                                        @if (CurrentSession.User.Authorization.ToString() == "admin")
+                                        {
+                                            <div class="ms-auto text-end">
+                                                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/User/Delete/@user.SystemUserID"><i class="material-icons text-sm me-2">delete</i>Delete</a>
+                                            </div>
+                                        }
                                     </li>
                                 </ul>
                             }

@@ -49,7 +49,5 @@ namespace EntityLayer
 
         public virtual List<PollsCompanies> PollsCompanies { get; set; }
 
-
-
     }
 }

@@ -10,11 +10,11 @@ namespace EntityLayer.ValueObject
     //Kullanıcı girişi yapılırken gerekli alanlar
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "{0} filed required")]
+        [Required(ErrorMessage = "{0} field required")]
         public string Username { get; set; }
 
 
-        [Required(ErrorMessage = "{0} filed required"), DataType(DataType.Password)]
+        [Required(ErrorMessage = "{0} field required"), DataType(DataType.Password)]
         public string Password { get; set; }
 
     }
