@@ -1,0 +1,135 @@
+﻿@using BussinessLayer
+@using EntityLayer
+@using UILayer.Models
+
+@{
+    UserManager userManager = new UserManager();
+    List<SystemUsers> userList = userManager.GetUsers();
+}
+<body class="g-sidenav-show  bg-gray-200">
+
+    @*Navbar start*@
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href="/Home/Index">
+                <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold text-white">@CurrentSession.User.Authorization.ToString()</span>
+            </a>
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/Home/Index">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">dashboard</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/Poll/Index">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Surveys</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/User/ProfileDetail">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">person</i>
+                        </div>
+                        <span class="nav-link-text ms-1">@CurrentSession.User.UserName.ToString()</span>
+                    </a>
+                </li>
+
+                @if (CurrentSession.User.Authorization.ToString() == "admin" || CurrentSession.User.Authorization.ToString() == "manager")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-white active bg-gradient-primary">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">receipt_long</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white " href="/Company/Index">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">view_in_ar</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Companies</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white " href="/Customer/Index">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Customers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-3">
+                        <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white " href="/User/Create">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">assignment</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Add User</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+            <div class="mx-3">
+                <a class="btn bg-gradient-primary mt-4 w-100" href="/Home/Logout" type="button">Sign Out</a>
+            </div>
+        </div>
+    </aside>
+    @*Navbar End*@
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <div class="card">
+                        <div class="card-header pb-0 px-3">
+                            <h6 class="mb-5">System User Information</h6>
+                            <p>
+                                <a href="/User/Create" class="btn btn-primary btn-sm ms-3 mt-2">Create New User</a>
+                            </p>
+                        </div>
+                        <div class="card-body pt-4 p-3">
+                            @foreach (SystemUsers user in userList)
+                            {
+                                <ul class="list-group">
+
+                                    <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-3 text-sm">@user.Name  @user.Surname</h6>
+                                            <span class="mb-2 text-xs">Authorization: <span class="text-dark font-weight-bold ms-sm-2">@user.Authorization</span></span>
+                                            <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">@user.Email</span></span>
+                                            <span class="mb-2 text-xs">Password: <span class="text-dark ms-sm-2 font-weight-bold">@user.Password</span></span>
+                                            <span class="mb-2 text-xs">CompanyID: <span class="text-dark ms-sm-2 font-weight-bold">@user.CompanyID</span></span>
+                                            <span class="mb-2 text-xs">Country: <span class="text-dark ms-sm-2 font-weight-bold">@user.Country</span></span>
+                                            <span class="mb-2 text-xs">City: <span class="text-dark ms-sm-2 font-weight-bold">@user.City</span></span>
+                                        </div>
+                                        <div class="ms-auto text-end">
+                                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/User/Delete/@user.SystemUserID"><i class="material-icons text-sm me-2">delete</i>Delete</a>
+                                            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

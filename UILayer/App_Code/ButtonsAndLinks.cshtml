@@ -1,0 +1,22 @@
+﻿
+@*Popup mekanizmasının basitleştirilmesi için yazılmıştır*@
+
+@helper PollDetailPopUp(string id = "myModal", string title = "Modal Title", bool showCloseButton = true)
+{
+    <div class="modal fade" id="@id" name="@id" tabindex="-1" aria-labelledby="@(id + "_label")" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header" id="@(id+ "_header")">
+                    <h5 class="modal-title" id="@(id+ "_label")">@title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="@(id+ "_body")">
+
+                </div>
+                <div class="modal-footer" id="@(id+ "_footer")">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

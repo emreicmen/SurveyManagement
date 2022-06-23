@@ -1,0 +1,128 @@
+﻿@using BussinessLayer
+@using EntityLayer
+
+@{
+    SingleDatas pollCountDetails = new SingleDatas();
+    int completed = pollCountDetails.Completed();
+    int notCompleted = pollCountDetails.NotCompleted();
+    int allPolls = pollCountDetails.AllPolls();
+    int allCustomers = pollCountDetails.AllCustomers();
+    int companies = pollCountDetails.TotalCompanies();
+    int customersAge = pollCountDetails.CustomersAverageAge();
+    int systemUsers = pollCountDetails.SystemUsers();
+    int countries = pollCountDetails.Countries();
+}
+
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-success shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Completed Polls</p>
+                <span class="mb-0">@completed.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-danger shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">UnCompleted Polls</p>
+                <span class="mb-0">@notCompleted.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Participants</p>
+                <span class="mb-0">@allCustomers.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-sm-6">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-secondary shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">All Polls</p>
+                <span>@allPolls.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="m-3">
+    <br />
+</div>
+
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-warning shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Companies</p>
+                <span>@companies.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Participants Average Age</p>
+                <span>@customersAge.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-secondary shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">SystemUsers</p>
+                <span>@systemUsers.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-sm-6">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">weekend</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Participants Different Countries</p>
+                <span>@countries.ToString()</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

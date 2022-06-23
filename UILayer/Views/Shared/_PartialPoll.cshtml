@@ -1,0 +1,41 @@
+﻿@using BussinessLayer
+@using EntityLayer
+
+@{
+    PollManager pollManager = new PollManager();
+    List<Polls> pollList = pollManager.GetPolls();
+}
+
+@foreach (Polls polls in pollList)
+{
+    <tr>
+        <td>
+            <div class="d-flex px-2 py-1">
+                <div class="d-flex flex-column justify-content-center">
+                    <a data-bs-toggle="modal" data-bs-target="#modal_polldetail"
+                       class="mb-0 text-sm"
+                       data-poll-id="@polls.PollID">@polls.PollTitle</a>
+                </div>
+            </div>
+        </td>
+        <td class="align-middle text-center text-sm">
+            <span class="text-xs font-weight-bold"> @polls.PollCreatedDate </span>
+        </td>
+        <td class="align-middle text-center text-sm">
+            @{
+                if (polls.PollCompletedDate == null)
+                {
+                    <span class="text-xs text-danger font-weight-bold text-danger">Not Completed </span>
+                }
+                else
+                {
+                    <span class="text-xs text-success font-weight-bold">@polls.PollCompletedDate</span>
+                }
+            }
+        </td>
+    </tr>
+}
+@ButtonsAndLinks.PollDetailPopUp("modal_polldetail", "Poll Details")
+
+
+
